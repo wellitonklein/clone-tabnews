@@ -40,5 +40,5 @@ function getSSLValues() {
 
 export default {
   query,
-  getNewClient
+  getNewClient,
 };
