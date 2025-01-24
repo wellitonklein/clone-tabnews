@@ -18,7 +18,7 @@ const controller = {
   errorHandlers: {
     onNoMatch: onNoMatchHandler,
     onError: onErrorHandler,
-  }
+  },
 };
 
 export default controller;
