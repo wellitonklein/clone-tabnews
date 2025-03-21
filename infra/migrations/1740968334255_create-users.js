@@ -1,5 +1,5 @@
 exports.up = (pgm) => {
-  pgm.createTable('users', {
+  pgm.createTable("users", {
     id: {
       type: "uuid",
       primaryKey: true,
