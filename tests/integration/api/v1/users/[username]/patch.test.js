@@ -132,28 +132,34 @@ describe("PATCH /api/v1/users/[username]", () => {
     });
 
     test("With unique 'username'", async () => {
-      const uniqueUser1Response = await fetch("http://localhost:3000/api/v1/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const uniqueUser1Response = await fetch(
+        "http://localhost:3000/api/v1/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: "uniqueUser1",
+            email: "uniqueUser1@curso.dev",
+            password: "senha123",
+          }),
         },
-        body: JSON.stringify({
-          username: "uniqueUser1",
-          email: "uniqueUser1@curso.dev",
-          password: "senha123",
-        }),
-      });
+      );
       expect(uniqueUser1Response.status).toBe(201);
 
-      const response = await fetch("http://localhost:3000/api/v1/users/uniqueUser1", {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "http://localhost:3000/api/v1/users/uniqueUser1",
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: "uniqueUser2",
+          }),
         },
-        body: JSON.stringify({
-          username: "uniqueUser2",
-        }),
-      });
+      );
 
       expect(response.status).toBe(200);
 
@@ -174,28 +180,34 @@ describe("PATCH /api/v1/users/[username]", () => {
     });
 
     test("With unique 'email'", async () => {
-      const uniqueEmail1Response = await fetch("http://localhost:3000/api/v1/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const uniqueEmail1Response = await fetch(
+        "http://localhost:3000/api/v1/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: "uniqueEmail1",
+            email: "uniqueEmail1@curso.dev",
+            password: "senha123",
+          }),
         },
-        body: JSON.stringify({
-          username: "uniqueEmail1",
-          email: "uniqueEmail1@curso.dev",
-          password: "senha123",
-        }),
-      });
+      );
       expect(uniqueEmail1Response.status).toBe(201);
 
-      const response = await fetch("http://localhost:3000/api/v1/users/uniqueEmail1", {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "http://localhost:3000/api/v1/users/uniqueEmail1",
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: "uniqueEmail2@curso.dev",
+          }),
         },
-        body: JSON.stringify({
-          email: "uniqueEmail2@curso.dev",
-        }),
-      });
+      );
 
       expect(response.status).toBe(200);
 
@@ -216,28 +228,34 @@ describe("PATCH /api/v1/users/[username]", () => {
     });
 
     test("With new 'password'", async () => {
-      const newPassword1Response = await fetch("http://localhost:3000/api/v1/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const newPassword1Response = await fetch(
+        "http://localhost:3000/api/v1/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: "newPassword1",
+            email: "newPassword1@curso.dev",
+            password: "newPassword1",
+          }),
         },
-        body: JSON.stringify({
-          username: "newPassword1",
-          email: "newPassword1@curso.dev",
-          password: "newPassword1",
-        }),
-      });
+      );
       expect(newPassword1Response.status).toBe(201);
 
-      const response = await fetch("http://localhost:3000/api/v1/users/newPassword1", {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "http://localhost:3000/api/v1/users/newPassword1",
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            password: "newPassword2",
+          }),
         },
-        body: JSON.stringify({
-          password: "newPassword2",
-        }),
-      });
+      );
 
       expect(response.status).toBe(200);
 
