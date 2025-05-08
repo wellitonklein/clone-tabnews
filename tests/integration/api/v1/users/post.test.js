@@ -30,7 +30,7 @@ describe("POST /api/v1/users", () => {
         id: responseBody.id,
         username: "john_doe",
         email: "john_doe@mail.com",
-        password:responseBody.password,
+        password: responseBody.password,
         created_at: responseBody.created_at,
         updated_at: responseBody.updated_at,
       });
@@ -39,11 +39,16 @@ describe("POST /api/v1/users", () => {
       expect(Date.parse(responseBody.updated_at)).not.toBeNaN();
 
       const userInDatabase = await user.findOneByUsername("john_doe");
-      const correctPassowordMatch = await password.compare("senha123", userInDatabase.password);
-      const incorrectPassowordMatch = await password.compare("senhaErrada", userInDatabase.password);
+      const correctPassowordMatch = await password.compare(
+        "senha123",
+        userInDatabase.password,
+      );
+      const incorrectPassowordMatch = await password.compare(
+        "senhaErrada",
+        userInDatabase.password,
+      );
       expect(correctPassowordMatch).toBe(true);
       expect(incorrectPassowordMatch).toBe(false);
-
     });
 
     test("With duplicated 'email'", async () => {
